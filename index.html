@@ -1,85 +1,505 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <title>صفحتي الشخصية</title>
-  <style>
-    body {
-      font-family: 'Tahoma', sans-serif;
-      background: linear-gradient(to bottom right, #f0f0f0, #e6e6e6);
-      color: #333;
-      text-align: center;
-      padding: 40px;
-    }
-
-    img {
-      width: 160px;
-      border-radius: 50%;
-      margin-bottom: 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    h1 {
-      font-size: 36px;
-      margin-bottom: 10px;
-    }
-
-    p {
-      font-size: 18px;
-      max-width: 600px;
-      margin: auto;
-      line-height: 1.6;
-    }
-
-    .social {
-      margin-top: 30px;
-    }
-
-    .social a {
-      margin: 0 12px;
-      text-decoration: none;
-      color: #0366d6;
-      font-size: 20px;
-    }
-
-    .cv-button {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 10px 20px;
-      background-color: #007bff;
-      color: white;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-
-    .cv-button:hover {
-      background-color: #0056b3;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محمد - مطور تطبيقات Flutter</title>
+    <style>
+        :root {
+            --primary-color: #0468d7;
+            --secondary-color: #54c5f8;
+            --dark-color: #333;
+            --light-color: #f4f4f4;
+            --success-color: #5cb85c;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            background-color: var(--light-color);
+            color: var(--dark-color);
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            overflow: hidden;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--dark-color);
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            padding: 1rem 2rem;
+        }
+        
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .navbar ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        .navbar h1 {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-text {
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+        
+        /* Header */
+        #showcase {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1200/600') no-repeat center center/cover;
+            height: 100vh;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 2rem;
+        }
+        
+        #showcase h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        #showcase p {
+            font-size: 1.5rem;
+            max-width: 700px;
+            margin: 1rem auto 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: opacity 0.3s ease;
+        }
+        
+        .btn:hover {
+            opacity: 0.9;
+        }
+        
+        /* About */
+        #about {
+            padding: 3rem 0;
+        }
+        
+        #about h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+        }
+        
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        
+        .about-img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        
+        /* Skills */
+        #skills {
+            padding: 3rem 0;
+            background: var(--dark-color);
+            color: #fff;
+        }
+        
+        #skills h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--secondary-color);
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .skill-card {
+            background: #444;
+            padding: 1.5rem;
+            border-radius: 5px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .skill-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+        
+        /* Projects */
+        #projects {
+            padding: 3rem 0;
+        }
+        
+        #projects h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+        }
+        
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            background: #fff;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .project-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+        }
+        
+        .project-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+        }
+        
+        .tag {
+            background: var(--secondary-color);
+            color: #fff;
+            padding: 0.3rem 0.7rem;
+            border-radius: 3px;
+            margin-left: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.8rem;
+        }
+        
+        /* Contact */
+        #contact {
+            padding: 3rem 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('/api/placeholder/1200/600') no-repeat center center/cover;
+            color: #fff;
+        }
+        
+        #contact h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--secondary-color);
+        }
+        
+        .contact-container {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .contact-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        
+        .social-links a {
+            color: #fff;
+            font-size: 2rem;
+            margin: 0 1rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        /* Footer */
+        footer {
+            background: #222;
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        footer p {
+            margin-bottom: 1rem;
+        }
+        
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            .navbar ul {
+                margin-top: 1rem;
+            }
+            
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .projects-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .contact-item {
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 </head>
 <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <h1><span class="logo-text">محمد</span> | مطور Flutter</h1>
+        <ul>
+            <li><a href="#showcase">الرئيسية</a></li>
+            <li><a href="#about">عني</a></li>
+            <li><a href="#skills">المهارات</a></li>
+            <li><a href="#projects">المشاريع</a></li>
+            <li><a href="#contact">تواصل معي</a></li>
+        </ul>
+    </nav>
 
-  <!-- صورة -->
-  <img src="https://i.imgur.com/4AiXzf8.jpg" alt="صورتي">
+    <!-- Showcase -->
+    <header id="showcase">
+        <h1>محمد</h1>
+        <p>مطور تطبيقات Flutter محترف | خبرة في تطوير تطبيقات الهاتف المحمول</p>
+        <a href="#projects" class="btn">استعرض أعمالي</a>
+    </header>
 
-  <!-- الاسم -->
-  <h1>مرحباً، أنا محمد</h1>
+    <!-- About -->
+    <section id="about">
+        <div class="container">
+            <h2>نبذة عني</h2>
+            <div class="about-container">
+                <div>
+                    <p>
+                        مرحباً! أنا محمد، مطور تطبيقات Flutter محترف مع خبرة واسعة في تطوير تطبيقات الجوال عبر المنصات المختلفة.
+                        أنا شغوف بإنشاء تطبيقات سريعة وسلسة وجذابة توفر تجربة مستخدم ممتازة.
+                    </p>
+                    <p>
+                        تخصصت في استخدام إطار عمل Flutter لإنشاء تطبيقات أصلية عبر الأنظمة المختلفة مثل Android و iOS باستخدام قاعدة كود واحدة،
+                        مما يؤدي إلى وقت تطوير أقصر وتكلفة أقل مع الحفاظ على جودة عالية.
+                    </p>
+                    <p>
+                        خلال مسيرتي المهنية، عملت على مجموعة متنوعة من المشاريع بدءاً من تطبيقات التجارة الإلكترونية إلى تطبيقات الخدمات المصرفية وتطبيقات الصحة واللياقة البدنية.
+                        أنا دائماً أبحث عن تحديات جديدة وفرص للنمو وتوسيع مهاراتي.
+                    </p>
+                </div>
+                <div>
+                    <img src="/api/placeholder/500/500" alt="صورة شخصية" class="about-img">
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- وصف -->
-  <p>
-    أنا مبرمج ومهتم بتطوير التطبيقات والمواقع باستخدام Flutter و HTML و JavaScript. أحب بناء حلول تساعد الناس في حياتهم اليومية.
-  </p>
+    <!-- Skills -->
+    <section id="skills">
+        <div class="container">
+            <h2>مهاراتي</h2>
+            <div class="skills-container">
+                <div class="skill-card">
+                    <i class="fab fa-flutter skill-icon"></i>
+                    <h3>Flutter</h3>
+                    <p>تطوير تطبيقات عبر المنصات باستخدام إطار عمل Flutter</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-code skill-icon"></i>
+                    <h3>Dart</h3>
+                    <p>برمجة قوية باستخدام لغة Dart</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-mobile-alt skill-icon"></i>
+                    <h3>تطوير الواجهات</h3>
+                    <p>تصميم واجهات مستخدم جذابة وسهلة الاستخدام</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-database skill-icon"></i>
+                    <h3>Firebase</h3>
+                    <p>تكامل مع خدمات Firebase (قاعدة البيانات، المصادقة، الإشعارات)</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-sync-alt skill-icon"></i>
+                    <h3>إدارة الحالة</h3>
+                    <p>Provider, BLoC, Riverpod, GetX</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-code-branch skill-icon"></i>
+                    <h3>Git</h3>
+                    <p>التحكم في نسخ الكود باستخدام Git</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- زر تحميل السيرة الذاتية -->
-  <a class="cv-button" href="cv.pdf" download>تحميل السيرة الذاتية</a>
+    <!-- Projects -->
+    <section id="projects">
+        <div class="container">
+            <h2>مشاريعي</h2>
+            <div class="projects-container">
+                <div class="project-card">
+                    <img src="/api/placeholder/400/200" alt="تحديد المهام" class="project-img">
+                    <div class="project-content">
+                        <h3>تطبيق تحديد المهام</h3>
+                        <p>تطبيق إدارة مهام شخصية مع ميزات متقدمة مثل الإشعارات وتصنيف المهام والمزامنة عبر الأجهزة.</p>
+                        <div class="project-tags">
+                            <span class="tag">Flutter</span>
+                            <span class="tag">Firebase</span>
+                            <span class="tag">Provider</span>
+                        </div>
+                        <a href="#" class="btn">استعراض المشروع</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="/api/placeholder/400/200" alt="التسوق الإلكتروني" class="project-img">
+                    <div class="project-content">
+                        <h3>تطبيق تسوق إلكتروني</h3>
+                        <p>تطبيق متكامل للتسوق عبر الإنترنت مع سلة تسوق، ودفع آمن، وتتبع الطلبات، وإدارة الملف الشخصي.</p>
+                        <div class="project-tags">
+                            <span class="tag">Flutter</span>
+                            <span class="tag">BLoC</span>
+                            <span class="tag">RESTful API</span>
+                        </div>
+                        <a href="#" class="btn">استعراض المشروع</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="/api/placeholder/400/200" alt="تطبيق طبي" class="project-img">
+                    <div class="project-content">
+                        <h3>تطبيق الصحة واللياقة</h3>
+                        <p>تطبيق لمتابعة الصحة واللياقة البدنية مع تتبع التمارين والتغذية وتذكيرات المواعيد الطبية.</p>
+                        <div class="project-tags">
+                            <span class="tag">Flutter</span>
+                            <span class="tag">Riverpod</span>
+                            <span class="tag">SQLite</span>
+                        </div>
+                        <a href="#" class="btn">استعراض المشروع</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- روابط -->
-  <div class="social">
-    <a href="https://github.com/yourusername" target="_blank">GitHub</a>
-    <a href="https://facebook.com/yourusername" target="_blank">Facebook</a>
-    <a href="mailto:youremail@example.com">Email</a>
-  </div>
+    <!-- Contact -->
+    <section id="contact">
+        <div class="container">
+            <h2>تواصل معي</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope contact-icon"></i>
+                        <h3>البريد الإلكتروني</h3>
+                        <p>name@example.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone contact-icon"></i>
+                        <h3>الهاتف</h3>
+                        <p>+123 456 7890</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt contact-icon"></i>
+                        <h3>الموقع</h3>
+                        <p>المملكة العربية السعودية</p>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 محمد - مطور تطبيقات Flutter</p>
+        <p>جميع الحقوق محفوظة</p>
+    </footer>
 </body>
 </html>
