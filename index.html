@@ -6,54 +6,80 @@
   <style>
     body {
       font-family: 'Tahoma', sans-serif;
-      background-color: #f9f9f9;
+      background: linear-gradient(to bottom right, #f0f0f0, #e6e6e6);
       color: #333;
       text-align: center;
       padding: 40px;
-      direction: rtl;
     }
+
     img {
-      width: 150px;
+      width: 160px;
       border-radius: 50%;
       margin-bottom: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
+
     h1 {
       font-size: 36px;
-      color: #222;
+      margin-bottom: 10px;
     }
+
     p {
       font-size: 18px;
       max-width: 600px;
       margin: auto;
+      line-height: 1.6;
     }
+
     .social {
       margin-top: 30px;
     }
+
     .social a {
-      margin: 0 10px;
+      margin: 0 12px;
       text-decoration: none;
       color: #0366d6;
       font-size: 20px;
     }
+
+    .cv-button {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .cv-button:hover {
+      background-color: #0056b3;
+    }
   </style>
 </head>
 <body>
-  <!-- صورة شخصية -->
-  <img src="https://i.imgur.com/4AiXzf8.jpg" alt="صورتك">
+
+  <!-- صورة -->
+  <img src="https://i.imgur.com/4AiXzf8.jpg" alt="صورتي">
 
   <!-- الاسم -->
-  <h1>مرحباً، أنا [اسمك هنا]</h1>
+  <h1>مرحباً، أنا محمد</h1>
 
-  <!-- وصف بسيط -->
+  <!-- وصف -->
   <p>
-    أنا مطوّر ومهتم ببرمجة المواقع وتطبيقات الهواتف. أشارك أعمالي ومشاريعي من خلال GitHub وأحب أتعلم كل جديد في عالم التقنية.
+    أنا مبرمج ومهتم بتطوير التطبيقات والمواقع باستخدام Flutter و HTML و JavaScript. أحب بناء حلول تساعد الناس في حياتهم اليومية.
   </p>
 
-  <!-- روابط تواصل -->
+  <!-- زر تحميل السيرة الذاتية -->
+  <a class="cv-button" href="cv.pdf" download>تحميل السيرة الذاتية</a>
+
+  <!-- روابط -->
   <div class="social">
-    <a href="https://github.com/username" target="_blank">GitHub</a>
-    <a href="https://facebook.com/username" target="_blank">Facebook</a>
-    <a href="mailto:you@example.com">Email</a>
+    <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+    <a href="https://facebook.com/yourusername" target="_blank">Facebook</a>
+    <a href="mailto:youremail@example.com">Email</a>
   </div>
+
 </body>
 </html>
