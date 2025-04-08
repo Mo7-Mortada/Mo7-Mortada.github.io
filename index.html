@@ -5,509 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>محفظة أعمال | مهندس برمجيات</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary-color: #3498db;
-            --secondary-color: #2c3e50;
-            --accent-color: #e74c3c;
-            --light-color: #ecf0f1;
-            --dark-color: #2c3e50;
-            --text-color: #333;
-            --text-light: #7f8c8d;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: #f5f5f5;
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        /* Header Styles */
-        header {
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-        }
-        
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-links li {
-            margin-left: 30px;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: var(--dark-color);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-        
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            margin-top: 70px;
-        }
-        
-        .hero-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        
-        .hero-text {
-            flex: 1;
-            padding-left: 50px;
-        }
-        
-        .hero-image {
-            flex: 1;
-            text-align: center;
-        }
-        
-        .hero-image img {
-            max-width: 80%;
-            border-radius: 50%;
-            border: 5px solid white;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            color: var(--secondary-color);
-        }
-        
-        .hero h2 {
-            font-size: 24px;
-            color: var(--primary-color);
-            margin-bottom: 30px;
-            font-weight: 400;
-        }
-        
-        .hero p {
-            font-size: 18px;
-            margin-bottom: 30px;
-            color: var(--text-light);
-        }
-        
-        .cta-buttons {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 12px 25px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s;
-        }
-        
-        .btn-primary {
-            background-color: var(--primary-color);
-            color: white;
-        }
-        
-        .btn-primary:hover {
-            background-color: #2980b9;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(41, 128, 185, 0.3);
-        }
-        
-        .btn-secondary {
-            border: 2px solid var(--primary-color);
-            color: var(--primary-color);
-        }
-        
-        .btn-secondary:hover {
-            background-color: var(--primary-color);
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(41, 128, 185, 0.3);
-        }
-        
-        /* About Section */
-        .section {
-            padding: 100px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .section-title h2 {
-            font-size: 36px;
-            color: var(--secondary-color);
-            position: relative;
-            display: inline-block;
-            padding-bottom: 15px;
-        }
-        
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            width: 50px;
-            height: 3px;
-            background-color: var(--primary-color);
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-        }
-        
-        .about-text {
-            flex: 1;
-        }
-        
-        .about-text h3 {
-            font-size: 28px;
-            margin-bottom: 20px;
-            color: var(--secondary-color);
-        }
-        
-        .about-text p {
-            margin-bottom: 20px;
-            font-size: 16px;
-        }
-        
-        .skills {
-            flex: 1;
-        }
-        
-        .skill-item {
-            margin-bottom: 25px;
-        }
-        
-        .skill-name {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
-        
-        .skill-bar {
-            height: 10px;
-            background-color: #e0e0e0;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-        
-        .skill-progress {
-            height: 100%;
-            background-color: var(--primary-color);
-            border-radius: 5px;
-        }
-        
-        /* Portfolio Section */
-        .portfolio {
-            background-color: #f9f9f9;
-        }
-        
-        .portfolio-filter {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        
-        .filter-btn {
-            padding: 8px 20px;
-            background: none;
-            border: 1px solid var(--primary-color);
-            color: var(--primary-color);
-            border-radius: 30px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .filter-btn.active, .filter-btn:hover {
-            background-color: var(--primary-color);
-            color: white;
-        }
-        
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .portfolio-item {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-        
-        .portfolio-item:hover {
-            transform: translateY(-10px);
-        }
-        
-        .portfolio-img {
-            height: 200px;
-            overflow: hidden;
-        }
-        
-        .portfolio-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-        
-        .portfolio-item:hover .portfolio-img img {
-            transform: scale(1.1);
-        }
-        
-        .portfolio-info {
-            padding: 20px;
-        }
-        
-        .portfolio-info h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
-            color: var(--secondary-color);
-        }
-        
-        .portfolio-info p {
-            color: var(--text-light);
-            margin-bottom: 15px;
-        }
-        
-        .portfolio-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        
-        .portfolio-tags span {
-            background-color: #e0e0e0;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 12px;
-            color: var(--text-color);
-        }
-        
-        /* Contact Section */
-        .contact {
-            background-color: var(--secondary-color);
-            color: white;
-        }
-        
-        .contact .section-title h2 {
-            color: white;
-        }
-        
-        .contact-content {
-            display: flex;
-            gap: 50px;
-        }
-        
-        .contact-info {
-            flex: 1;
-        }
-        
-        .contact-info h3 {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-        
-        .contact-info p {
-            margin-bottom: 30px;
-        }
-        
-        .contact-details {
-            margin-bottom: 30px;
-        }
-        
-        .contact-detail {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-        
-        .contact-detail i {
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-left: 15px;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .social-links a {
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            transition: all 0.3s;
-        }
-        
-        .social-links a:hover {
-            background-color: var(--primary-color);
-            transform: translateY(-3px);
-        }
-        
-        .contact-form {
-            flex: 1;
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            color: var(--dark-color);
-            font-weight: 500;
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-            transition: border 0.3s;
-        }
-        
-        .form-control:focus {
-            border-color: var(--primary-color);
-            outline: none;
-        }
-        
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
-        }
-        
-        .submit-btn {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 12px 30px;
-            border-radius: 30px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: 500;
-            transition: all 0.3s;
-        }
-        
-        .submit-btn:hover {
-            background-color: #2980b9;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(41, 128, 185, 0.3);
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--dark-color);
-            color: white;
-            text-align: center;
-            padding: 30px 0;
-        }
-        
-        /* Responsive Styles */
-        @media (max-width: 992px) {
-            .hero-content, .about-content, .contact-content {
-                flex-direction: column;
-            }
-            
-            .hero-text, .about-text, .contact-info {
-                padding-left: 0;
-                margin-bottom: 50px;
-            }
-            
-            .hero-image img {
-                max-width: 60%;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .hero h1 {
-                font-size: 36px;
-            }
-            
-            .hero h2 {
-                font-size: 20px;
-            }
-            
-            .section-title h2 {
-                font-size: 30px;
-            }
-            
-            .portfolio-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            }
-        }
-    </style>
+    <!-- لم يتم تضمين CSS كما طلب -->
 </head>
 <body>
     <!-- Header -->
@@ -558,50 +56,79 @@
                     <p>خلال مسيرتي المهنية، عملت على العديد من المشاريع الناجحة التي ساعدت الشركات في تحسين عملياتها وزيادة إنتاجيتها. أؤمن بالتعلم المستمر وأتابع أحدث التطورات في عالم البرمجة والتقنية.</p>
                     <p>أستمتع بالعمل ضمن فريق وأحب مشاركة معرفتي مع الآخرين. هدفي هو إنشاء برمجيات عالية الجودة توفر تجربة مستخدم ممتازة وتحل المشكلات الحقيقية.</p>
                 </div>
-                <div class="skills">
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>تطوير الويب</span>
-                            <span>95%</span>
+                <!-- تغيير قسم المهارات ليكون على شكل كروت -->
+                <div class="skills-container">
+                    <div class="skills-slider">
+                        <!-- كرت مهارة 1 -->
+                        <div class="skill-card">
+                            <div class="skill-image">
+                                <img src="/api/placeholder/100/100" alt="HTML">
+                            </div>
+                            <h4>HTML5</h4>
+                            <p>خبرة ممتازة في بناء هياكل الويب</p>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 95%;"></div>
+                        
+                        <!-- كرت مهارة 2 -->
+                        <div class="skill-card">
+                            <div class="skill-image">
+                                <img src="/api/placeholder/100/100" alt="CSS">
+                            </div>
+                            <h4>CSS3</h4>
+                            <p>تصميم واجهات مستخدم متقدمة</p>
                         </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>Python</span>
-                            <span>90%</span>
+                        
+                        <!-- كرت مهارة 3 -->
+                        <div class="skill-card">
+                            <div class="skill-image">
+                                <img src="/api/placeholder/100/100" alt="JavaScript">
+                            </div>
+                            <h4>JavaScript</h4>
+                            <p>برمجة تفاعلية للجانب الأمامي</p>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%;"></div>
+                        
+                        <!-- كرت مهارة 4 -->
+                        <div class="skill-card">
+                            <div class="skill-image">
+                                <img src="/api/placeholder/100/100" alt="React">
+                            </div>
+                            <h4>React</h4>
+                            <p>بناء واجهات مستخدم تفاعلية</p>
                         </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>JavaScript</span>
-                            <span>85%</span>
+                        
+                        <!-- كرت مهارة 5 -->
+                        <div class="skill-card">
+                            <div class="skill-image">
+                                <img src="/api/placeholder/100/100" alt="Node.js">
+                            </div>
+                            <h4>Node.js</h4>
+                            <p>تطوير خلفية سريعة وفعالة</p>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%;"></div>
+                        
+                        <!-- كرت مهارة 6 -->
+                        <div class="skill-card">
+                            <div class="skill-image">
+                                <img src="/api/placeholder/100/100" alt="Python">
+                            </div>
+                            <h4>Python</h4>
+                            <p>للتحليل وتطبيقات الذكاء الاصطناعي</p>
                         </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>قواعد البيانات</span>
-                            <span>80%</span>
+                        
+                        <!-- كرت مهارة 7 -->
+                        <div class="skill-card">
+                            <div class="skill-image">
+                                <img src="/api/placeholder/100/100" alt="Database">
+                            </div>
+                            <h4>قواعد البيانات</h4>
+                            <p>SQL و MongoDB و Firebase</p>
                         </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%;"></div>
-                        </div>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-name">
-                            <span>DevOps</span>
-                            <span>75%</span>
-                        </div>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 75%;"></div>
+                        
+                        <!-- كرت مهارة 8 -->
+                        <div class="skill-card">
+                            <div class="skill-image">
+                                <img src="/api/placeholder/100/100" alt="DevOps">
+                            </div>
+                            <h4>DevOps</h4>
+                            <p>أدوات CI/CD و Docker و AWS</p>
                         </div>
                     </div>
                 </div>
@@ -756,24 +283,26 @@
                     </div>
                 </div>
                 
+                <!-- ربط نموذج الاتصال بوظائف خلفية -->
                 <div class="contact-form">
-                    <form>
+                    <form id="contactForm" action="process_form.php" method="POST" onsubmit="return validateForm()">
                         <div class="form-group">
                             <label for="name">الاسم الكامل</label>
-                            <input type="text" id="name" class="form-control" required>
+                            <input type="text" id="name" name="name" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="email">البريد الإلكتروني</label>
-                            <input type="email" id="email" class="form-control" required>
+                            <input type="email" id="email" name="email" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="subject">الموضوع</label>
-                            <input type="text" id="subject" class="form-control" required>
+                            <input type="text" id="subject" name="subject" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="message">الرسالة</label>
-                            <textarea id="message" class="form-control" required></textarea>
+                            <textarea id="message" name="message" class="form-control" required></textarea>
                         </div>
+                        <div id="formStatus"></div>
                         <button type="submit" class="submit-btn">إرسال الرسالة</button>
                     </form>
                 </div>
@@ -829,6 +358,76 @@
                     }
                 });
             });
+            
+            // تنفيذ سلايدر المهارات
+            const skillsSlider = document.querySelector('.skills-slider');
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            skillsSlider.addEventListener('mousedown', (e) => {
+                isDown = true;
+                startX = e.pageX - skillsSlider.offsetLeft;
+                scrollLeft = skillsSlider.scrollLeft;
+            });
+
+            skillsSlider.addEventListener('mouseleave', () => {
+                isDown = false;
+            });
+
+            skillsSlider.addEventListener('mouseup', () => {
+                isDown = false;
+            });
+
+            skillsSlider.addEventListener('mousemove', (e) => {
+                if(!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - skillsSlider.offsetLeft;
+                const walk = (x - startX) * 2;
+                skillsSlider.scrollLeft = scrollLeft - walk;
+            });
+            
+            // وظيفة التحقق من صحة النموذج
+            window.validateForm = function() {
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const subject = document.getElementById('subject').value;
+                const message = document.getElementById('message').value;
+                const formStatus = document.getElementById('formStatus');
+                
+                if (!name || !email || !subject || !message) {
+                    formStatus.innerHTML = '<div class="error-message">يرجى ملء جميع الحقول المطلوبة</div>';
+                    return false;
+                }
+                
+                // التحقق من صحة البريد الإلكتروني
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    formStatus.innerHTML = '<div class="error-message">يرجى إدخال بريد إلكتروني صحيح</div>';
+                    return false;
+                }
+                
+                // يمكنك إضافة المزيد من التحققات هنا
+                
+                // إرسال النموذج باستخدام AJAX لتجنب إعادة تحميل الصفحة
+                const formData = new FormData(document.getElementById('contactForm'));
+                const xhr = new XMLHttpRequest();
+                
+                xhr.open('POST', 'process_form.php', true);
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status === 200) {
+                            formStatus.innerHTML = '<div class="success-message">تم إرسال رسالتك بنجاح! سأتواصل معك قريباً.</div>';
+                            document.getElementById('contactForm').reset();
+                        } else {
+                            formStatus.innerHTML = '<div class="error-message">حدث خطأ أثناء إرسال الرسالة. يرجى المحاولة مرة أخرى.</div>';
+                        }
+                    }
+                };
+                
+                xhr.send(formData);
+                return false; // منع إرسال النموذج التقليدي
+            };
         });
     </script>
 </body>
