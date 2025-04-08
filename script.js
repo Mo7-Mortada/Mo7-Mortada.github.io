@@ -269,7 +269,7 @@ function setupDarkModeToggle() {
 }
 
 // استدعاء وظيفة وضع الليل/النهار (اختياري)
-// setupDarkModeToggle();
+setupDarkModeToggle();
 
 // فلترة المشاريع حسب التقنية (مميزة إضافية)
 function setupProjectsFilter() {
@@ -336,4 +336,4 @@ function setupProjectsFilter() {
 }
 
 // استدعاء وظيفة فلترة المشاريع (اختياري)
-// setupProjectsFilter();
+setupProjectsFilter();
