@@ -253,6 +253,165 @@ img{
 .skills__container{
     row-gap: 2rem;
 }
+.ticker-container {
+    width: 80%;
+    margin-left: 8rem;
+    overflow-x: hidden;
+    margin-bottom: 2rem;
+    position: relative;
+    border-radius: 15px;
+    /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); */
+    background: transparent;
+}
+
+.ticker {
+    min-width: 100%;
+    display: flex;
+    gap : 1rem;
+    flex-direction: row-reverse; /* RTL الحركة */
+    width: fit-content;
+    animation: scroll-right 60s linear infinite;
+    padding: 10px;
+    white-space: nowrap;
+}
+
+@keyframes scroll-right {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); } /* اتجاه اليسار */
+}
+
+.tech-card {
+    min-width: 100px;
+    height: 100px;
+    margin: 0 15px;
+    margin-top: 10px;
+    background: transparent;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0; /* منع انكماش البطاقات */
+}
+
+.tech-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+.tech-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+}
+
+.tech-card .logo {
+    width: 40px;
+    margin-top: 25px;
+    transition: transform 0.3s ease;
+}
+
+.tech-card:hover .logo {
+    transform: scale(1.1);
+}
+
+.tech-card h3 {
+    color: #333;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+/* تخصيص ألوان لكل تقنية */
+.html {
+    --color-primary: #e44d26;
+    --color-secondary: #f16529;
+}
+
+.css {
+    --color-primary: #264de4;
+    --color-secondary: #2965f1;
+}
+
+.js {
+    --color-primary: #f7df1e;
+    --color-secondary: #f9e64f;
+}
+
+.python {
+    --color-primary: #306998;
+    --color-secondary: #FFD43B;
+}
+
+.react {
+    --color-primary: #61dafb;
+    --color-secondary: #282c34;
+}
+
+.node {
+    --color-primary: #3c873a;
+    --color-secondary: #68a063;
+}
+
+.flutter {
+    --color-primary: #44d1fd;
+    --color-secondary: #0468d7;
+}
+
+.dart {
+    --color-primary: #0175c2;
+    --color-secondary: #02569b;
+}
+
+.c {
+    --color-primary: #555555;
+    --color-secondary: #a8b9cc;
+}
+
+.cpp {
+    --color-primary: #00599C;
+    --color-secondary: #659AD2;
+}
+
+.java {
+    --color-primary: #f89820;
+    --color-secondary: #b07219;
+}
+
+.kotlin {
+    --color-primary: #7f52ff;
+    --color-secondary: #a97bff;
+}
+
+.csharp {
+    --color-primary: #239120;
+    --color-secondary: #68217a;
+}
+
+.go {
+    --color-primary: #00ADD8;
+    --color-secondary: #007D9C;
+}
+
+.canva {
+    --color-primary: #00c4cc;
+    --color-secondary: #00acc1;
+}
+
+.figma {
+    --color-primary: #f24e1e;
+    --color-secondary: #a259ff;
+}
+
 .skills__subtitle{
     color: var(--first-color);
     margin-bottom: var(--mb-3);
