@@ -2,33 +2,94 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Thank You</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Success! Thank You</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2316a34a'><path d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary-color: #16a34a;
+      --secondary-color: #d90429;
+      --bg-color: #f8fafc;
+      --text-color: #697477;
+      --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     body {
-      background-color: #f3f4f6;
+      background-color: var(--bg-color);
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      font-family: sans-serif;
-      color: #333;
+      min-height: 100vh;
+      font-family: 'Inter', sans-serif;
+      color: var(--text-color);
+      line-height: 1.6;
+      padding: 20px;
     }
     .message-box {
       text-align: center;
       background-color: white;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 40px 30px;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      max-width: 500px;
+      width: 100%;
+      animation: fadeIn 0.6s ease-in-out;
     }
     .message-box h1 {
-      color: #16a34a;
+      color: var(--primary-color);
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+    .message-box p {
+      font-size: 18px;
+      margin-bottom: 25px;
+      color: #475569;
+    }
+    .btn {
+      display: inline-block;
+      background-color: var(--primary-color);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: var(--secondary-color);
+      transform: translateY(-2px);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 480px) {
+      .message-box {
+        padding: 30px 20px;
+      }
+      .message-box h1 {
+        font-size: 24px;
+      }
+      .message-box p {
+        font-size: 16px;
+      }
     }
   </style>
 </head>
 <body>
   <div class="message-box">
-    <h1>✅ تم إرسال رسالتك بنجاح!</h1>
-    <p>شكرًا لتواصلك معنا، سنرد عليك في أقرب وقت ممكن.</p>
+    <h1>✅ Your message has been sent successfully!</h1>
+    <p>Thank you for contacting us. We'll get back to you as soon as possible.</p>
+    <a href="/" class="btn">Return to Homepage</a>
   </div>
 </body>
 </html>
