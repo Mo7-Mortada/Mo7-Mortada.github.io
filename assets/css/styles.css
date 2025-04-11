@@ -241,13 +241,35 @@ img{
     display: block;
     margin-bottom: var(--mb-4);
 }
-.about__social-icon{
+.about__social-icon i {
+    font-size: 1.5rem;
+    display: inline-block;
+    color: #555; /* لون مبدئي */
+    margin-right: 1rem;
+    transition: all 0.3s ease;
+}
+  
+.about__social-icon:hover i {
+    transform: scale(1.9) translateY(-5px);
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+/* LinkedIn */
+.about__social-icon:hover .fa-linkedin { color: #0077b5 ;}
+/* GitHub */
+.about__social-icon:hover .fa-github { color: #24292e;}
+/* Gmail */
+.about__social-icon:hover .fa-envelope { color: #D44638;}
+/* WhatsApp */
+.about__social-icon:hover .fa-whatsapp { color: #25D366;}
+
+/* .about__social-icon{
     font-size: 1.4rem;
     margin: 0 var(--mb-1);
 }
 .about__social-icon:hover{
     color: var(--first-color);
-}
+} */
 
 /* ===== SKILLS =====*/
 .skills__container{
@@ -526,12 +548,71 @@ img{
 .footer__link:hover{
     color: var(--first-color);
 }
+
 .footer__social{
+    font-size: 1.5rem;
+    display: inline-block;
+    color: #555; /* لون مبدئي */
+    margin-right: 1rem;
+    transition: all 0.3s ease;
+}
+
+.footer__social:hover {
+    transform: scale(1.8) translateY(-5px);
+}
+
+/* X (Twitter) */
+.footer__social:hover .fa-x-twitter { color: #000000; }
+/* Instagram */
+.footer__social:hover .fa-instagram { color: #FD1D1D; }
+/* Facebook */
+.footer__social:hover .fa-facebook { color: #1877F2; }
+
+/* .footer__social{
     font-size: 1.4rem;
     margin-right: var(--mb-1);
-}
-.footer__social:hover{
+} */
+/* .footer__social:hover{
     color: var(--first-color);
+} */
+
+.made_with {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--white-color);
+    font-size: var(--small-font-size);
+    text-align: center;
+    margin-top: 70px;
+    font-family: var(--body-font);
+}
+.heart {
+    color: var(--first-color);
+    animation: heartbeat 1s infinite;
+    transform-origin: center;
+    display: inline-block;
+    margin-left: 5px;
+    text-align: center;
+}
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+    20% {
+        transform: scale(1.25);
+    }
+    40% {
+        transform: scale(1.5);
+    }
+    60% {
+        transform: scale(1.75);
+    }
+    80% {
+        transform: scale(2);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 /* ===== MEDIA QUERIES =====*/
