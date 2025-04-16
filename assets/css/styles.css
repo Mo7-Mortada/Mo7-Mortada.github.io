@@ -276,7 +276,7 @@ img{
     row-gap: 2rem;
 }
 .ticker-container {
-    width: 90%;
+    width: 100%;
     margin-left: 1rem;
     overflow-x: hidden;
     margin-bottom: 2rem;
