@@ -149,12 +149,12 @@ sr.reveal('.contact__button', {delay: 600})
                 logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg",
                 description: "لغة حديثة مدعومة من Google لتطوير تطبيقات Android بشكل أكثر مرونة وأماناً."
             },
-            {
-                name: "C#",
-                class: "csharp",
-                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
-                description: "لغة برمجة كائنية مطورة من قبل Microsoft لتطوير تطبيقات ويندوز والألعاب."
-            },
+            // {
+            //     name: "C#",
+            //     class: "csharp",
+            //     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
+            //     description: "لغة برمجة كائنية مطورة من قبل Microsoft لتطوير تطبيقات ويندوز والألعاب."
+            // },
             {
                 name: "Go",
                 class: "go",
