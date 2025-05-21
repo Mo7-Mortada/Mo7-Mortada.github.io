@@ -101,18 +101,18 @@ sr.reveal('.contact__button', {delay: 600})
                 logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
                 description: "لغة برمجة متعددة الاستخدامات تتميز بقراءتها السهلة ومكتباتها المتنوعة."
             },
-            {
-                name: "React",
-                class: "react",
-                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-                description: "مكتبة JavaScript مفتوحة المصدر لبناء واجهات مستخدم تفاعلية."
-            },
-            {
-                name: "Node.js",
-                class: "node",
-                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
-                description: "بيئة تشغيل JavaScript على الخادم لبناء تطبيقات الويب سريعة وقابلة للتطوير."
-            },
+            // {
+            //     name: "React",
+            //     class: "react",
+            //     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+            //     description: "مكتبة JavaScript مفتوحة المصدر لبناء واجهات مستخدم تفاعلية."
+            // },
+            // {
+            //     name: "Node.js",
+            //     class: "node",
+            //     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+            //     description: "بيئة تشغيل JavaScript على الخادم لبناء تطبيقات الويب سريعة وقابلة للتطوير."
+            // },
             {
                 name: "Flutter",
                 class: "flutter",
@@ -131,18 +131,18 @@ sr.reveal('.contact__button', {delay: 600})
                 logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg",
                 description: "لغة برمجة قوية منخفضة المستوى تُستخدم في تطوير الأنظمة والبرامج عالية الأداء."
             },
-            {
-                name: "C++",
-                class: "cpp",
-                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg",
-                description: "امتداد للغة C يدعم البرمجة الكائنية، تُستخدم لتطوير الألعاب والبرمجيات المعقدة."
-            },
-            {
-                name: "Java",
-                class: "java",
-                logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
-                description: "لغة برمجة كائنية التوجه تُستخدم في تطوير التطبيقات المحمولة وسطح المكتب والخوادم."
-            },
+            // {
+            //     name: "C++",
+            //     class: "cpp",
+            //     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg",
+            //     description: "امتداد للغة C يدعم البرمجة الكائنية، تُستخدم لتطوير الألعاب والبرمجيات المعقدة."
+            // },
+            // {
+            //     name: "Java",
+            //     class: "java",
+            //     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+            //     description: "لغة برمجة كائنية التوجه تُستخدم في تطوير التطبيقات المحمولة وسطح المكتب والخوادم."
+            // },
             {
                 name: "Kotlin",
                 class: "kotlin",
